@@ -1,0 +1,25 @@
+{
+  "name": "mongo-process-usage",
+  "version": "0.1.0",
+  "description": "writes system memory and process usage to a mongo database every n seconds",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nirum/mongo-process-usage.git"
+  },
+  "author": "Niru Maheswaranathan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nirum/mongo-process-usage/issues"
+  },
+  "homepage": "https://github.com/nirum/mongo-process-usage",
+  "dependencies": {
+    "lodash": "^2.4.1",
+    "mongodb": "^1.4.18",
+    "mongoose": "^3.8.17",
+    "usage": "^0.4.13"
+  }
+}
