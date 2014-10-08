@@ -10,12 +10,12 @@ var exec = require('child_process').exec
 // connect to database
 MongoClient.connect('mongodb://localhost:27017/usage', function(err, db) {
 
+  // collection
+  var collection = db.collection('logs');
+    
   // function to log process
   var logprocess = function(name, interval) {
 
-    // collection
-    var collection = db.collection(name);
-    
     // get PIDs of process
     var child = exec("ps -A | grep '[" + name[0] + "]" + name.substr(1) + "' | awk '{ print $1 }'", function(error, stdout, stderr) {
 
