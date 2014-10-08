@@ -21,7 +21,7 @@ MongoClient.connect('mongodb://localhost:27017/usage', function(err, db) {
     setInterval(function() {
 
       // get PIDs of process
-      var child = exec("ps -A | grep '[" + name[0] + "]" + name.substr(1) + "' | awk '{ print $1 }'", function(error, stdout, stderr) {
+      exec("ps -A | grep '[" + name[0] + "]" + name.substr(1) + "' | awk '{ print $1 }'", function(error, stdout, stderr) {
 
         // split PIDs into an array, remove empty PIDs
         ids = stdout.split("\n");
@@ -33,7 +33,6 @@ MongoClient.connect('mongodb://localhost:27017/usage', function(err, db) {
           if (err !== null) {
             console.log('Error! ' + err);
           }
-          console.log('active update!')
         });
 
         // for each PID
@@ -55,11 +54,11 @@ MongoClient.connect('mongodb://localhost:27017/usage', function(err, db) {
         });
       });
     }, interval);
-  }
+  };
 
   // start logging some processes
-  logprocess('ipython', 1000);
-  logprocess('matlab', 1000);
+  logprocess('ipython', 10000);
+  logprocess('matlab', 10000);
   console.log('Running process logs!')
 
 });
